@@ -3,6 +3,7 @@ package ru.plm.economy;
 import org.bukkit.OfflinePlayer;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public interface EconomyAPI {
@@ -21,11 +22,33 @@ public interface EconomyAPI {
 
     boolean hasBucks(OfflinePlayer player, long amount);
 
-    void withdrawBucks(Connection conn, String playerName, long amount) throws SQLException;
+    void withdrawBucks(Connection conn, PreparedStatement ps, String playerName, long amount) throws SQLException;
 
-    void withdrawBucks(Connection conn, OfflinePlayer player, long amount) throws SQLException;
+    void withdrawBucks(Connection conn, PreparedStatement ps, OfflinePlayer player, long amount) throws SQLException;
 
-    void depositBucks(Connection conn, String playerName, long amount) throws SQLException;
+    void depositBucks(Connection conn, PreparedStatement ps, String playerName, long amount) throws SQLException;
 
-    void depositBucks(Connection conn, OfflinePlayer player, long amount) throws SQLException;
+    void depositBucks(Connection conn, PreparedStatement ps, OfflinePlayer player, long amount) throws SQLException;
+
+    String formatPlumcoins(long amount);
+
+    boolean hasPlumcoinsAccount(String playerName);
+
+    boolean hasPlumcoinsAccount(OfflinePlayer player);
+
+    Long getPlumcoinsBalance(String playerName);
+
+    Long getPlumcoinsBalance(OfflinePlayer player);
+
+    boolean hasPlumcoins(String playerName, long amount);
+
+    boolean hasPlumcoins(OfflinePlayer player, long amount);
+
+    void withdrawPlumcoins(Connection conn, PreparedStatement ps, String playerName, long amount) throws SQLException;
+
+    void withdrawPlumcoins(Connection conn, PreparedStatement ps, OfflinePlayer player, long amount) throws SQLException;
+
+    void depositPlumcoins(Connection conn, PreparedStatement ps, String playerName, long amount) throws SQLException;
+
+    void depositPlumcoins(Connection conn, PreparedStatement ps, OfflinePlayer player, long amount) throws SQLException;
 }
