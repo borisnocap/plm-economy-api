@@ -1,6 +1,6 @@
 package ru.plm.economy;
 
-public class BalanceUpdate {
+public class EconomyTransactionOperation {
     public enum Currency {
         BUCKS,
         PLUMCOINS
@@ -15,7 +15,7 @@ public class BalanceUpdate {
     private final Currency currency;
     private final long amount;
 
-    public BalanceUpdate(String playerName, Currency currency, UpdateType updateType, long amount) {
+    public EconomyTransactionOperation(String playerName, Currency currency, UpdateType updateType, long amount) {
         this.playerName = playerName;
         this.currency = currency;
         if (updateType == UpdateType.WITHDRAW) {

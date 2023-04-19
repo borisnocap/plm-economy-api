@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class EconomyTransaction {
     private final UUID uuid;
-    private final ArrayList<BalanceUpdate> balanceUpdates = new ArrayList<>();
+    private final ArrayList<EconomyTransactionOperation> balanceUpdates = new ArrayList<>();
     private boolean closed;
 
     public EconomyTransaction() {
@@ -16,7 +16,7 @@ public class EconomyTransaction {
         return uuid;
     }
 
-    public ArrayList<BalanceUpdate> getBalanceUpdates() {
+    public ArrayList<EconomyTransactionOperation> getOperations() {
         return balanceUpdates;
     }
 
