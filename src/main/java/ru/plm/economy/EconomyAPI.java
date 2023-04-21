@@ -1,7 +1,6 @@
 package ru.plm.economy;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -11,7 +10,7 @@ public interface EconomyAPI {
 
     boolean cancelTransaction(UUID transactionUUID);
 
-    void closeTransaction(UUID transactionUUID) throws EconomyException;
+    void closeTransaction(Connection connection, UUID transactionUUID) throws EconomyException, SQLException;
 
     String formatBucks(long amount);
 
@@ -23,9 +22,9 @@ public interface EconomyAPI {
 
     void initializeBucksBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
-    void depositBucks(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void depositBucks(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
-    void withdrawBucks(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void withdrawBucks(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
     String formatPlumcoins(long amount);
 
@@ -37,7 +36,7 @@ public interface EconomyAPI {
 
     void initializePlumcoinsBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
-    void depositPlumcoins(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void depositPlumcoins(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
-    void withdrawPlumcoins(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void withdrawPlumcoins(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 }
