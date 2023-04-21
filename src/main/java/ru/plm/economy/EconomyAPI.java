@@ -6,7 +6,9 @@ import java.util.UUID;
 
 public interface EconomyAPI {
 
-    UUID createTransaction(String... transactionParticipants);
+    UUID createBucksTransaction(String... transactionParticipants);
+
+    UUID createPlumcoinsTransaction(String... transactionParticipants);
 
     boolean cancelTransaction(UUID transactionUUID);
 
@@ -22,9 +24,9 @@ public interface EconomyAPI {
 
     void initializeBucksBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
-    void depositBucks(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void depositBucks(UUID transactionUUID, String playerName, long amount) throws EconomyException;
 
-    void withdrawBucks(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void withdrawBucks(UUID transactionUUID, String playerName, long amount) throws EconomyException;
 
     String formatPlumcoins(long amount);
 
@@ -36,7 +38,7 @@ public interface EconomyAPI {
 
     void initializePlumcoinsBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
-    void depositPlumcoins(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void depositPlumcoins(UUID transactionUUID, String playerName, long amount) throws EconomyException;
 
-    void withdrawPlumcoins(UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
+    void withdrawPlumcoins(UUID transactionUUID, String playerName, long amount) throws EconomyException;
 }
