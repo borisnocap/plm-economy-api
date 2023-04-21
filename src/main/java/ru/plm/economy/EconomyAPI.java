@@ -21,7 +21,7 @@ public interface EconomyAPI {
 
     boolean hasBucks(String playerName, long amount);
 
-    void setBucksBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
+    void initializeBucksBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
     void depositBucks(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
@@ -35,7 +35,7 @@ public interface EconomyAPI {
 
     boolean hasPlumcoins(String playerName, long amount);
 
-    void setPlumcoinsBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
+    void initializePlumcoinsBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
     void depositPlumcoins(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
