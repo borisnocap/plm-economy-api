@@ -8,7 +8,7 @@ public interface EconomyAPI {
 
     UUID createBucksTransaction(String... transactionParticipants);
 
-    UUID createPlumcoinsTransaction(String... transactionParticipants);
+    UUID createPlumcoinsTransaction(String transactionParticipant);
 
     boolean cancelTransaction(UUID transactionUUID);
 
