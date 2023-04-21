@@ -3,14 +3,15 @@ package ru.plm.economy;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.UUID;
 
 public interface EconomyAPI {
 
-    long createTransaction(String... transactionParticipants);
+    UUID createTransaction(String... transactionParticipants);
 
-    boolean cancelTransaction(long transactionId);
+    boolean cancelTransaction(UUID transactionUUID);
 
-    void closeTransaction(long transactionId) throws EconomyException;
+    void closeTransaction(UUID transactionUUID) throws EconomyException;
 
     String formatBucks(long amount);
 
@@ -20,11 +21,11 @@ public interface EconomyAPI {
 
     boolean hasBucks(String playerName, long amount);
 
-    void setBucksBalance(long transactionId, String playerName, long balance) throws EconomyException;
+    void setBucksBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
-    void depositBucks(Connection conn, PreparedStatement ps, long transactionId, String playerName, long amount) throws EconomyException, SQLException;
+    void depositBucks(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
-    void withdrawBucks(Connection conn, PreparedStatement ps, long transactionId, String playerName, long amount) throws EconomyException, SQLException;
+    void withdrawBucks(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
     String formatPlumcoins(long amount);
 
@@ -34,9 +35,9 @@ public interface EconomyAPI {
 
     boolean hasPlumcoins(String playerName, long amount);
 
-    void setPlumcoinsBalance(long transactionId, String playerName, long balance) throws EconomyException;
+    void setPlumcoinsBalance(UUID transactionUUID, String playerName, long balance) throws EconomyException;
 
-    void depositPlumcoins(Connection conn, PreparedStatement ps, long transactionId, String playerName, long amount) throws EconomyException, SQLException;
+    void depositPlumcoins(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 
-    void withdrawPlumcoins(Connection conn, PreparedStatement ps, long transactionId, String playerName, long amount) throws EconomyException, SQLException;
+    void withdrawPlumcoins(Connection conn, PreparedStatement ps, UUID transactionUUID, String playerName, long amount) throws EconomyException, SQLException;
 }
