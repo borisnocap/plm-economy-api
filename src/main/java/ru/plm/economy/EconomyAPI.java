@@ -16,11 +16,11 @@ public interface EconomyAPI {
 
     void withdraw(Currency currency, UUID transactionUUID, String playerName, long amount) throws EconomyException;
 
-    UUID createTransaction(Currency currency, String... participants);
+    Transaction createTransaction(Currency currency, String... participants);
 
-    boolean cancelTransaction(UUID transactionUUID);
+    boolean cancelTransaction(Transaction transaction);
 
-    void writeTransactionToDatabase(Connection connection, UUID transactionUUID) throws EconomyException, SQLException;
+    void writeTransactionToDatabase(Connection connection, Transaction transaction) throws SQLException;
 
-    void closeTransaction(UUID transactionUUID) throws EconomyException;
+    void closeTransaction(Transaction transaction);
 }
