@@ -1,6 +1,6 @@
 package ru.plm.economy;
 
-public interface Transaction {
+public interface EconomyTransaction {
 
     void addWithdrawOperation(String playerName, long amount) throws EconomyException;
 

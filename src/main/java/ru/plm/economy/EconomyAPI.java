@@ -2,7 +2,6 @@ package ru.plm.economy;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.UUID;
 
 public interface EconomyAPI {
 
@@ -12,15 +11,11 @@ public interface EconomyAPI {
 
     boolean hasBalance(Currency currency, String playerName, long amount);
 
-    void deposit(Currency currency, UUID transactionUUID, String playerName, long amount) throws EconomyException;
+    EconomyTransaction createTransaction(Currency currency, String... participants);
 
-    void withdraw(Currency currency, UUID transactionUUID, String playerName, long amount) throws EconomyException;
+    boolean cancelTransaction(EconomyTransaction transaction);
 
-    Transaction createTransaction(Currency currency, String... participants);
+    void writeTransactionToDatabase(Connection connection, EconomyTransaction transaction) throws SQLException;
 
-    boolean cancelTransaction(Transaction transaction);
-
-    void writeTransactionToDatabase(Connection connection, Transaction transaction) throws SQLException;
-
-    void closeTransaction(Transaction transaction);
+    void closeTransaction(EconomyTransaction transaction);
 }
