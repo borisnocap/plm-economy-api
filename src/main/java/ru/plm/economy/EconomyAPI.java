@@ -11,11 +11,11 @@ public interface EconomyAPI {
 
     boolean hasBalance(Currency currency, String playerName, long amount);
 
-    EconomyTransaction createTransaction(Currency currency, String initiator, String... participants);
+    EconomyTransaction createTransaction(Currency currency, String initiator, String... participants) throws EconomyException;
 
     boolean cancelTransaction(EconomyTransaction transaction);
 
-    void writeTransactionToDatabase(Connection connection, EconomyTransaction transaction) throws SQLException;
+    void writeTransactionToDatabase(Connection connection, EconomyTransaction transaction) throws SQLException, EconomyException;
 
-    void closeTransaction(EconomyTransaction transaction);
+    void closeTransaction(EconomyTransaction transaction) throws EconomyException;
 }
