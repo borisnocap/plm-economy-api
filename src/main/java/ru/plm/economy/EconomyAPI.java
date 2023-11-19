@@ -11,7 +11,7 @@ public interface EconomyAPI {
 
     boolean hasBalance(Currency currency, String playerName, long amount);
 
-    EconomyTransaction createTransaction(Currency currency, String initiator, String... participants) throws EconomyException;
+    EconomyTransaction createTransaction(Currency currency, String initiator, String... participants);
 
     boolean cancelTransaction(EconomyTransaction transaction);
 
