@@ -3,6 +3,7 @@ package ru.plm.economy;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+@SuppressWarnings("unused")
 public interface EconomyAPI {
 
     String formatCurrency(Currency currency, long amount);

@@ -6,7 +6,7 @@
 
     <groupId>ru.plm</groupId>
     <artifactId>plm-economy-api</artifactId>
-    <version>1.0</version>
+    <version>1</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
