@@ -14,13 +14,13 @@ public interface EconomyAPI {
 
     boolean hasBalance(Currency currency, String playerName, long amount);
 
-    EconomyTransaction createTransaction(Plugin initiator, String event, Currency currency, String... participants);
+    EconomyTransaction createTransaction(Plugin initiator, String event, Currency currency, String player1, String player2);
 
     boolean cancelTransaction(EconomyTransaction transaction);
 
     void writeTransactionToDatabase(Connection connection, EconomyTransaction transaction) throws SQLException, EconomyException;
 
-    void validateTransaction(EconomyTransaction transaction);
+    void validateTransaction(EconomyTransaction transaction) throws EconomyException;
 
     void closeTransaction(EconomyTransaction transaction);
 }
