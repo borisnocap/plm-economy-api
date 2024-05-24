@@ -1,5 +1,7 @@
 package ru.plm.economy;
 
+import org.bukkit.plugin.Plugin;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -12,11 +14,13 @@ public interface EconomyAPI {
 
     boolean hasBalance(Currency currency, String playerName, long amount);
 
-    EconomyTransaction createTransaction(Currency currency, String initiator, String... participants);
+    EconomyTransaction createTransaction(Plugin initiator, String event, Currency currency, String... participants);
 
     boolean cancelTransaction(EconomyTransaction transaction);
 
     void writeTransactionToDatabase(Connection connection, EconomyTransaction transaction) throws SQLException, EconomyException;
 
-    void closeTransaction(EconomyTransaction transaction) throws EconomyException;
+    void validateTransaction(EconomyTransaction transaction);
+
+    void closeTransaction(EconomyTransaction transaction);
 }
