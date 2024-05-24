@@ -21,5 +21,4 @@ public interface EconomyAPI {
     void writeTransactionToDatabase(Connection connection, EconomyTransaction transaction) throws SQLException;
 
     void closeTransaction(EconomyTransaction transaction);
-
 }
