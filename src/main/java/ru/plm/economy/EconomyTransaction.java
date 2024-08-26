@@ -1,17 +1,10 @@
 package ru.plm.economy;
 
-import org.jetbrains.annotations.NotNull;
-
 @SuppressWarnings("unused")
 public interface EconomyTransaction {
 
-    String ILLEGAL_PARTICIPANTS = "Не удалось создать экономическую транзакцию, потому что указаны недопустимые параметры";
-    String PLAYER_1_CURRENCY_BLOCKED = "Не удалось создать экономическую транзакцию, потому что у вас занят платежный канал";
-    String PLAYER_2_CURRENCY_BLOCKED = "Не удалось создать экономическую транзакцию, потому что у второго игрока занят платежный канал";
-
     boolean isNotInitialized();
 
-    @NotNull
     String getInitializationErrorMessage();
 
     /**
